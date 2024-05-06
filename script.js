@@ -1,20 +1,35 @@
-function rankeado(qtdVitorias, qtdDerrotas) {
-  let resultado = qtdVitorias - qtdDerrotas;
-  if (resultado < 10) {
-    console.log("O elo é ferro");
-  } else if (resultado >= 11 && resultado < 21) {
-    console.log("O elo é bronze");
-  } else if (resultado >= 21 && resultado < 51) {
-    console.log("O elo é prata");
-  } else if (resultado >= 51 && resultado < 81) {
-    console.log("O elo é ouro");
-  } else if (resultado >= 81 && resultado < 91) {
-    console.log("O elo é bronze");
-  } else if (resultado >= 91 && resultado < 100) {
-    console.log("O elo é bronze");
-  } else if (resultado === 101) {
-    console.log("O elo é imortal");
+class Heroi {
+  constructor(nome, idade, tipo) {
+    this.nome = nome;
+    this.idade = idade;
+    this.tipo = tipo;
+  }
+
+  atacar() {
+    let ataque;
+    switch (this.tipo) {
+      case "mago":
+        ataque = "usou magia";
+        break;
+      case "guerreiro":
+        ataque = "usou espada";
+        break;
+      case "monge":
+        ataque = "usou artes marciais";
+        break;
+      case "ninja":
+        ataque = "usou shuriken";
+        break;
+      default:
+        ataque = "usou um ataque desconhecido";
+    }
+    console.log(`O ${this.tipo} atacou usando ${ataque}`);
   }
 }
 
-rankeado(20, 5);
+// Exemplo de uso
+const heroi1 = new Heroi("Gandalf", 1000, "mago");
+heroi1.atacar();
+
+const heroi2 = new Heroi("Aragorn", 35, "guerreiro");
+heroi2.atacar();
